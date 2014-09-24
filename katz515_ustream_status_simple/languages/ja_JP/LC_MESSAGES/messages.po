@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: concrete5.4.1.1\n"
+"Report-Msgid-Bugs-To: Katsuyuki Ueno <info@deerstudio.com>\n"
+"POT-Creation-Date: 2011-02-28 22:21+0900\n"
+"PO-Revision-Date: 2011-03-01 00:07+0900\n"
+"Last-Translator: Katsuyuki Ueno <info@deerstudio.com>\n"
+"Language-Team: Usagi Project <concrete5@concrete5-japan.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/view.php:10
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/view.php:12
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:9
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:11
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:14
+msgid "It's live now!"
+msgstr "生放送中！"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/view.php:19
+msgid "Visit our Ustream channel"
+msgstr "Ustream チャンネルページへ"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/view.php:22
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:9
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:11
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:15
+msgid "Live stream is offline"
+msgstr "只今、中継していません"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/view.php:27
+msgid "ERROR: Unable to retrieve Ustream channel. Please review your channel name."
+msgstr "エラー：Ustreamとつながりません。チャネルを確認してください。"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/controller.php:23
+#: katz515_ustream_status_simple/controller.php:23
+msgid "Access Denied."
+msgstr "アクセスできません。"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:1
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/edit.php:1
+msgid "Please type the URL, channel name or ID of your desired Ustream channel (e.g., http://www.ustream.tv/channel/YokosoNews)"
+msgstr "UstreamのURLを入力<br />(例 \"http://www.ustream.tv/channel/YokosoNews\")"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:3
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/edit.php:3
+msgid "Ustream Channel"
+msgstr "Ustreamチャンネル"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:5
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/edit.php:5
+msgid "Image Type"
+msgstr "イメージタイプ"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:8
+msgid "Small (88x31 pixels)"
+msgstr "小サイズ(88x31)"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:10
+msgid "Medium (190x80 pixels))"
+msgstr "中サイズ(190x80)"
+
+#: katz515_ustream_status_simple/blocks/ustream_status_simple/add.php:13
+msgid "Medium Large (300x120 pixels)"
+msgstr "大サイズ(300x120)"
+
+#: katz515_ustream_status_simple/controller.php:32
+msgid "Display the live or offline status of a desired Ustream channel"
+msgstr "Ustreamネット放送のオンライン/オフラインの状態を表示します。"
+
+#: katz515_ustream_status_simple/controller.php:36
+msgid "Ustream Status Simple"
+msgstr "Ustreamステータス・シンプル"
+
