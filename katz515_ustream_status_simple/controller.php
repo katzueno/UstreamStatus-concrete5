@@ -26,7 +26,7 @@ class Katz515UstreamStatusSimplePackage extends Package {
 
 	protected $pkgHandle = 'katz515_ustream_status_simple';
 	protected $appVersionRequired = '5.3.3';
-	protected $pkgVersion = '1.0.1';
+	protected $pkgVersion = '2.0.0';
 	
 	public function getPackageDescription() { 
 		return t("Display the live or offline status of a desired Ustream channel");

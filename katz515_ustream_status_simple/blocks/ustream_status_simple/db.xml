@@ -10,5 +10,7 @@
 		<field name="ImageType" type="I"> 
 			<default value="1" />
 		</field>					
+		<field name="ImageOnline" type="I"></field>
+		<field name="ImageOffline" type="I"></field>
 	</table>
 </schema>
