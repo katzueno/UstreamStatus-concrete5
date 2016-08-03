@@ -24,8 +24,8 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class UstreamStatusSimpleBlockController extends BlockController {
 	var $pobj;
 	protected $btTable = 'btUstreamStatusSimple';
-	protected $btInterfaceWidth = "400";
-	protected $btInterfaceHeight = "300";
+	protected $btInterfaceWidth = "500";
+	protected $btInterfaceHeight = "400";
 	protected $btCacheBlockRecord = true;
 	protected $btCacheBlockOutput = true;
 	protected $btCacheBlockOutputOnPost = true;
@@ -56,7 +56,8 @@ class UstreamStatusSimpleBlockController extends BlockController {
         $this->set('uh', $uh);
         $al = Loader::helper('concrete/asset_library');
         $this->set('al', $al);
-        $bt = BlockType::getByHandle('katz515_ustream_status_simple');
+        $btID = $this->block->getBlockTypeID();
+        $bt = BlockType::getByID($btID);
         $bPath = $uh->getBlockTypeAssetsURL($bt);
         $this->set('bPath', $bPath);
     }
@@ -66,12 +67,10 @@ class UstreamStatusSimpleBlockController extends BlockController {
         $this->set('uh', $uh);
         $al = Loader::helper('concrete/asset_library');
         $this->set('al', $al);
-        $bt = BlockType::getByHandle('katz515_ustream_status_simple');
+        $btID = $this->block->getBlockTypeID();
+        $bt = BlockType::getByID($btID);
         $bPath = $uh->getBlockTypeAssetsURL($bt);
         $this->set('bPath', $bPath);
-
-		$this->set('OfflineImage', (empty($this->OfflineImage) ? null : $this->get_image_object($this->OfflineImage, 0, 0, false)));
-		$this->set('OnlineImage', (empty($this->OnlineImage) ? null : $this->get_image_object($this->OfflineImage, 0, 0, false)));
 	}
 
 	function view() {
@@ -84,25 +83,31 @@ class UstreamStatusSimpleBlockController extends BlockController {
 		$UstChannelMetaTags = @get_meta_tags('http://www.ustream.tv/channel/' . $this->UstreamURL);
 		$UstChannelID = intval($UstChannelMetaTags['ustream:channel_id']);
 		if ($UstChannelID) {
-    		$r = $fh->getContents('https://api.ustream.tv/channels/'. $this->UstreamURL .'.json');
+    		$r = $fh->getContents('https://api.ustream.tv/channels/'. $UstChannelID .'.json');
     		$channel = $js->decode($r);
     		$this->set('status',$channel->channel->status);
     		$this->set('url',$channel->tinyurl);
     		$this->set('channel',$channel->channel);
+            $uh = Loader::helper('concrete/urls');
+            $btID = $this->block->getBlockTypeID();
+            $bt = BlockType::getByID($btID);
+            $ImageType = $this->ImageType;
             if ($ImageType == 4) {
-                if (is_object($OfflineImage) && is_object($OnlineImage)) {
-                    $OfflineImage = empty($this->OfflineImage) ? null : $this->get_image_object($this->OfflineImage, 0, 0, false);
-                    $OfflineImageURL = $OfflineImage->src;
-                    $OnlineImage = empty($this->OnlineImage) ? null : $this->get_image_object($this->OfflineImage, 0, 0, false);
-                    $OnlineImageURL = $OnlineImage->src;
+                $ImageOffline = empty($this->ImageOffline) ? null : $this->get_image_object($this->ImageOffline, 0, 0, false);
+                $ImageOnline = empty($this->ImageOnline) ? null : $this->get_image_object($this->ImageOnline, 0, 0, false);
+                if (is_object($ImageOffline) && is_object($ImageOnline)) {
+                    $ImageOfflineURL = $ImageOffline->src;
+                    $ImageOnlineURL = $ImageOnline->src;
+                } else {
+                    $ImageOfflineURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_1_off.gif");                    
+                    $ImageOnlineURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_1_on.gif");
                 }
             } else {
-                $uh = Loader::helper('concrete/urls');
-                $btID = $b->getBlockTypeID();
-                $bt = BlockType::getByID($btID);
-                $OnlineImageURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_{$ImageType}_on.gif");
-                $OfflineImageURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_{$ImageType}_off.gif");
+                $ImageOfflineURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_{$ImageType}_off.gif");
+                $ImageOnlineURL = $uh->getBlockTypeAssetsURL($bt,"images/ust_status_{$ImageType}_on.gif");
             }
+            $this->set('ImageOfflineURL',$ImageOfflineURL);
+            $this->set('ImageOnlineURL',$ImageOnlineURL);
 		}
 	}
 

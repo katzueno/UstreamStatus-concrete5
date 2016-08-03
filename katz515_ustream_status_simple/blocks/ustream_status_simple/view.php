@@ -7,7 +7,7 @@ switch ($status)
 	case 'live':
 		?>
 		<a href="<?php echo $url ?>" alt="<?php echo t('It\'s live now!');?>" target="_blank">
-		<img src="<?php echo $OnlineImageURL; ?>" alt="<?php echo t('It\'s live now!')?>" /></a>
+		<img src="<?php echo $ImageOnlineURL; ?>" alt="<?php echo t('It\'s live now!')?>" /></a>
 <?php
 	break;
 	// OFFLINE: Insert the HTML for offline status
@@ -15,7 +15,7 @@ switch ($status)
 ?>
 		<a href="<?php echo $url ?>" alt="<?php echo t('Visit our Ustream channel');?>" ta
 rget="_blank">
-		<img src="<?php echo $OfflineImageURL;?>" alt="<?php echo t('Live stream is offline')?>" /></a>
+		<img src="<?php echo $ImageOfflineURL;?>" alt="<?php echo t('Live stream is offline')?>" /></a>
 <?php
 	break;
 	default:
