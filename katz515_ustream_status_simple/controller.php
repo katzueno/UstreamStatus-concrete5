@@ -25,7 +25,7 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class Katz515UstreamStatusSimplePackage extends Package {
 
 	protected $pkgHandle = 'katz515_ustream_status_simple';
-	protected $appVersionRequired = '5.3.3';
+	protected $appVersionRequired = '5.3.3.1';
 	protected $pkgVersion = '2.0.0';
 	
 	public function getPackageDescription() { 
